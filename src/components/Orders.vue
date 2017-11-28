@@ -1,5 +1,6 @@
 <!-- src/components/Orders.vue -->
 <template>
+  <div id="example-2">
 <table class="table table-hover product-table">
   <thead>
     <tr>
@@ -10,11 +11,12 @@
   <tbody>
     <tr v-for="order in orders" track-by="id">
       <td>{{order.order_id}}</td>
-      <button v-if=!order.feedback>Feedback</button>
+      <button v-if=!order.feedback v-on:click="greet">Feedback</button>
     </tr>
 
   </tbody>
 </table>
+</div>
 </template>
 
 <script>
@@ -34,6 +36,16 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
+  },
+  methods: {
+    greet: function (event) {
+      // `this` inside methods points to the Vue instance
+      alert('Hello ' + this.name + '!')
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
   }
 }
 </script>
