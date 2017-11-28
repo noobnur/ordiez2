@@ -9,37 +9,31 @@
   </thead>
   <tbody>
     <tr v-for="order in orders" track-by="id">
-        <td>{{order.order_id}}</td>
-        <td>Feedback</td>
-      </tr>
+      <td>{{order.order_id}}</td>
+      <button v-if=!order.feedback>Feedback</button>
+    </tr>
 
-      <!-- <p>
-        {{orders}}
-      </p> -->
   </tbody>
 </table>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
-  data() {
+  data () {
     return {
       orders: [],
       errors: []
     }
   },
 
-  created() {
-axios.get('https://stormy-earth-22350.herokuapp.com/orders')
-.then(response => {
-  this.orders = response.data
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
-
-}
+  created () {
+    axios.get('https://stormy-earth-22350.herokuapp.com/orders')
+      .then(response => {
+        this.orders = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 }
 </script>
