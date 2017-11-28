@@ -8,14 +8,14 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr v-for="product in products" track-by="id">
-        <td>{{orders}}</td>
+    <tr v-for="order in orders" track-by="id">
+        <td>{{order.order_id}}</td>
         <td>Feedback</td>
-      </tr> -->
+      </tr>
 
-      <p>
+      <!-- <p>
         {{orders}}
-      </p>
+      </p> -->
   </tbody>
 </table>
 </template>
